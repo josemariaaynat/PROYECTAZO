@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+    {% block title %} Transacciones {% endblock %}
+    {% block contenido %}
+    <form action="nuevacompra" method="post">
+        {{ form.csrf_token }}
+        <div class="field">
+            <div class="field">
+                {{ form.monedafrom.label }}
+                {{ form.monedafrom }}
+            </div>
+            <div class="mon">
+                {{ form.monedato.label }}
+                {{ form.monedato }}
+            </div>
+            <div class="field">
+                {{ form.cantidadfrom.label }}
+                {{ form.cantidadfrom(placeholder='Escribe un número') }}
+                {% for error in form.cantidadfrom.errors %}
+                    <p class="err-msg">
+                        {{ error }}
+                    </p>
+                {% endfor %}
+            </div>
+            <div class="field">
+                {{ form.cantidadto.label }}
+                {{ form.cantidadto(placeholder='Escribe un número') }}
+                {% for error in form.cantidadto.errors %}
+                    <p class="err-msg">
+                        {{ error }}
+                    </p>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="field">
+            {{ form.submit }}
+        </div>  
+        <div class="field">
+            {{ form.calc }}
+        </div>  
+    </form>
+    {% endblock %}

@@ -1,0 +1,6 @@
+venv/
+__pychache__/
+__pycache__/run.cpython-38.pyc
+movements/__pycache__/
+.env
+.vscode/
